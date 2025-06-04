@@ -15,4 +15,4 @@ class ZipSearchPathPlugin(SearchPathPlugin):
         with zipfile.ZipFile(root_zip_file, 'r') as zf:
             for file in zf.infolist():
                 if file.filename.endswith('.yaml'):
-                    search_path.append(provider=self.plugin_name(), path=f'./configs/{file.filename}', anchor=".")
+                    search_path.prepend(provider=self.plugin_name(), path=f'./configs/{file.filename}', anchor=".")
